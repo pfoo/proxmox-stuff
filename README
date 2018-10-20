@@ -1,3 +1,4 @@
 * nonagscreen.patch : Remove proxmox free edition nagscreen asking you to buy a support on every log-in
 * pam_notify.sh : send an email to the root user when a pam session is opened (ssh login, sudo, ...)
 * ssh_wrapper.sh : This script is intended to be run as command= directive of ssh authorized_key file in order to deny running every command except vncproxy, allowing a better proxmox cluster isolation and still allowing proxmox remote console to work
+* W10-idle-cpu.patch : Fix windows 10 high idle cpu load (before patch : ~15%, after patch ~1%). This will be fixed when qemu 3 is released.

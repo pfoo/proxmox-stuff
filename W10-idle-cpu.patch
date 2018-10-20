@@ -1,0 +1,11 @@
+--- /usr/share/perl5/PVE/QemuServer.pm.orig	2018-10-13 11:38:17.263750002 +0200
++++ /usr/share/perl5/PVE/QemuServer.pm	2018-10-13 11:38:39.832213766 +0200
+@@ -6726,6 +6726,8 @@
+ 
+     if ($winversion >= 7) {
+ 	push @$cpuFlags , 'hv_relaxed';
++	push @$cpuFlags , 'hv_synic';
++	push @$cpuFlags , 'hv_stimer';
+ 
+ 	if (qemu_machine_feature_enabled ($machine_type, $kvmver, 3, 0)) {
+ 	    push @$cpuFlags , 'hv_synic';
