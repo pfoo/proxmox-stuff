@@ -1,6 +1,6 @@
---- /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js.orig	2018-02-28 20:30:57.479088219 +0100
-+++ /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js	2018-02-28 20:32:29.129550625 +0100
-@@ -353,22 +353,7 @@
+--- /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js	2019-11-26 13:00:18.000000000 +0100
++++ /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js	2019-12-14 11:15:10.207015540 +0100
+@@ -378,22 +378,22 @@
  	    success: function(response, opts) {
  		var data = response.result.data;
  
@@ -8,7 +8,7 @@
 -		    Ext.Msg.show({
 -			title: gettext('No valid subscription'),
 -			icon: Ext.Msg.WARNING,
--			msg: Proxmox.Utils.getNoSubKeyHtml(data.url),
+-			message: Proxmox.Utils.getNoSubKeyHtml(data.url),
 -			buttons: Ext.Msg.OK,
 -			callback: function(btn) {
 -			    if (btn !== 'ok') {
@@ -18,9 +18,23 @@
 -			}
 -		    });
 -		} else {
--		    orig_cmd();
++//		if (data.status !== 'Active') {
++//		    Ext.Msg.show({
++//			title: gettext('No valid subscription'),
++//			icon: Ext.Msg.WARNING,
++//			message: Proxmox.Utils.getNoSubKeyHtml(data.url),
++//			buttons: Ext.Msg.OK,
++//			callback: function(btn) {
++//			    if (btn !== 'ok') {
++//				return;
++//			    }
++//			    orig_cmd();
++//			}
++//		    });
++//		} else {
+ 		    orig_cmd();
 -		}
-+		orig_cmd();
++//		}
  	    }
  	});
      },
