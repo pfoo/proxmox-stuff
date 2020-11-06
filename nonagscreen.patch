@@ -1,9 +1,9 @@
---- /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js	2020-10-03 14:33:13.453127095 +0200
-+++ /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js	2020-10-03 14:52:40.086085463 +0200
-@@ -462,18 +462,19 @@
+--- /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js	2020-11-07 00:02:07.445127019 +0100
++++ /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js	2020-11-07 00:04:25.751816641 +0100
+@@ -463,18 +463,19 @@
  		    let res = response.result;
  		    if (res === null || res === undefined || !res || res
- 			.data.status !== 'Active') {
+ 			.data.status.toLowerCase() !== 'active') {
 -			Ext.Msg.show({
 -			    title: gettext('No valid subscription'),
 -			    icon: Ext.Msg.WARNING,
@@ -16,7 +16,7 @@
 -				orig_cmd();
 -			    },
 -			});
-+			orig_cmd();
++                        orig_cmd();
 +//			Ext.Msg.show({
 +//			    title: gettext('No valid subscription'),
 +//			    icon: Ext.Msg.WARNING,
